@@ -1,0 +1,15 @@
+<!-- @for (d of this.dev; track d.lastName) {
+<p>
+  <span class="bold">First Name:</span>
+  {{ d.firstName }}
+</p>
+} -->
+
+<div *ngIf="devs">
+  <div *ngFor="let dev of devs">
+    <p>
+      <span class="bold">First Name:</span>
+      {{ dev.firstName }}
+    </p>
+  </div>
+</div>
