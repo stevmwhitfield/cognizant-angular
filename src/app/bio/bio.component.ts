@@ -1,26 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Developer } from '../developer';
 import { CommonModule } from '@angular/common';
+import { DeveloperService } from '../developer.service';
+import { Developer } from '../developer';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-bio',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterLink],
     templateUrl: './bio.component.html',
     styleUrl: './bio.component.css',
 })
 export class BioComponent implements OnInit {
-    devs!: Developer[];
+    devs: Developer[] = [];
+
+    constructor(private devService: DeveloperService) {}
 
     ngOnInit(): void {
-        this.loadDeveloper();
-    }
-
-    loadDeveloper() {
-        this.devs = [
-            new Developer('John', 'Doe', 'Java', 2020),
-            new Developer('Jane', 'Smith', 'TypeScript', 2022),
-            new Developer('Bob', 'Johnson', 'Go', 2024),
-        ];
+        this.devs = this.devService.getAllDevelopers();
     }
 }

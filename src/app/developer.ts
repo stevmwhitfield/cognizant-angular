@@ -1,10 +1,12 @@
 export class Developer {
     constructor(
+        public id: number,
         public firstName: string,
         public lastName: string,
         public favoriteLanguage: string,
         public yearStarted: number
     ) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.favoriteLanguage = favoriteLanguage;

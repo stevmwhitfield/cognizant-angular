@@ -1,33 +1,20 @@
 <!-- Angular 17+ syntax -->
 
-<!-- @for (d of this.dev; track d.lastName) {
-<p>
-  <span class="bold">First Name:</span>
-  {{ d.firstName }}
-</p>
-} -->
+<div class="container">
+  <ul>
+    @for (dev of this.devs; track dev.lastName) {
+    <li>
+      <a [routerLink]="['/bio', dev.id]">{{ dev.firstName }} {{ dev.lastName }}</a>
+    </li>
+    }
+  </ul>
+</div>
 
 <!-- Angular 16- syntax -->
 
 
-<div class="grid" *ngIf="devs">
+<!-- <div class="grid" *ngIf="devs">
   <div *ngFor="let dev of devs">
-    <div class="card">
-      <div class="card-header">
-        {{ dev.firstName }} {{ dev.lastName }}
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <p>Favorite Language</p>
-          <p>{{ dev.favoriteLanguage }}</p>
-        </div>
-        <div class="row">
-          <p>Year Started</p>
-          <p>{{ dev.yearStarted }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- <div class="row"><span class="semi-bold">Favorite Language</span> {{ dev.favoriteLanguage }}</div>
-  <div class="row"><span class="semi-bold">Year Started</span> {{ dev.yearStarted }}</div> -->
+  </div>
+</div> -->
