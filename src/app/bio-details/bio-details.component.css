@@ -1,7 +1,7 @@
 .card {
   /* border: 1px solid #ccc; */
   border-radius: 0.25rem;
-  padding: 1rem;
+  padding: 1rem 0;
   width: 20rem;
 }
 
@@ -27,4 +27,13 @@
 
 p {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

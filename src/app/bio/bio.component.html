@@ -2,7 +2,7 @@
 
 <div class="container">
   <ul>
-    @for (dev of this.devs; track dev.lastName) {
+    @for (dev of this.devs; track dev.id) {
     <li>
       <a [routerLink]="['/bio', dev.id]">{{ dev.firstName }} {{ dev.lastName }}</a>
     </li>
