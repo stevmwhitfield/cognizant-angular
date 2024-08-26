@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Developer } from './developer';
-import { HttpClient } from '@angular/common/http';
-import { catchError, map, Observable, ObservableInput } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, map, Observable, of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -31,7 +31,7 @@ export class DeveloperService {
                 this.devs = data;
                 return data;
             }),
-            catchError(this.handleError)
+            catchError(this.handleError('getHeroes', 'get', []))
         );
     }
 
@@ -39,12 +39,29 @@ export class DeveloperService {
         return this.devs.find((dev) => dev.id === id) as Developer;
     }
 
-    private handleError(
-        err: unknown,
-        caught: Observable<Developer[]>
-    ): ObservableInput<Developer[]> {
-        console.error('Error:', err);
-        console.error('Caught:', caught);
-        throw new Error('Failed to load all developers');
+    addDeveloper(dev: Developer): Observable<Developer> {
+        const url = `${this.url}/add`;
+        const options = {
+            headers: { 'Content-Type': 'application/json' },
+        };
+        return this.http
+            .post<Developer>(url, dev, options)
+            .pipe(catchError(this.handleError('postDeveloper', 'post', dev)));
+    }
+
+    handleError<T>(
+        serviceName = '',
+        operation = 'operation',
+        result = {} as T
+    ) {
+        return (error: HttpErrorResponse): Observable<T> => {
+            console.error(error);
+            const message =
+                error.error instanceof ErrorEvent
+                    ? error.error.message
+                    : `Error ${error.status}: ${error.error}`;
+            console.log(`${serviceName}: ${operation} failed: ${message}`);
+            return of(result);
+        };
     }
 }

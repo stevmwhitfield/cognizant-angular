@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>Create Developer</h1>
+  <form [formGroup]="devForm" (ngSubmit)="handleSubmit()">
+    <div class="form-control">
+      <label for="firstName">First Name</label>
+      <input class="input-field" type="text" formControlName="firstName" id="firstName" />
+      <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+        <div class="error" *ngIf="firstName?.hasError('required')">
+          First Name is required
+        </div>
+        <div class="error" *ngIf="firstName?.hasError('minlength')">
+          First Name must be at least 2 characters
+        </div>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="lastName">Last Name</label>
+      <input class="input-field" type="text" formControlName="lastName" id="lastName" />
+      <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+        <div class="error" *ngIf="lastName?.hasError('required')">
+          Last Name is required
+        </div>
+        <div class="error" *ngIf="lastName?.hasError('minlength')">
+          Last Name must be at least 2 characters
+        </div>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="favoriteLanguage">Favorite Language</label>
+      <input class="input-field" type="text" formControlName="favoriteLanguage" id="favoriteLanguage" />
+      <div *ngIf="favoriteLanguage?.invalid && (favoriteLanguage?.dirty || favoriteLanguage?.touched)">
+        <div class="error" *ngIf="favoriteLanguage?.hasError('required')">
+          Favorite Language is required
+        </div>
+        <div class="error" *ngIf="favoriteLanguage?.hasError('minlength')">
+          Favorite Language must be at least 1 character
+        </div>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="yearStarted">Year Started</label>
+      <input class="input-field" type="number" formControlName="yearStarted" id="yearStarted" />
+      <div *ngIf="yearStarted?.invalid && (yearStarted?.dirty || yearStarted?.touched)">
+        <div class="error" *ngIf="yearStarted?.hasError('required')">
+          Year Started is required
+        </div>
+        <div class="error" *ngIf="yearStarted?.hasError('min')">
+          Year Started must be at least 1900
+        </div>
+      </div>
+    </div>
+    <button class="button" type="submit" [disabled]="!devForm.valid">Submit</button>
+  </form>
+</div>
