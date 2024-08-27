@@ -37,6 +37,19 @@
       <a class="nav-link" routerLink="/create">Create</a>
     </li>
   </ul>
+  <ul class="navbar-nav flex-end">
+    @if (!this.isAuthenticated) {
+    <li>
+      <button class="button" (click)="login()">Login</button>
+    </li>
+    } @else {
+    <li>
+      <span class="greeting">Hello, user</span>
+      <button class="button" (click)="logout()">Logout</button>
+    </li>
+    }
+    <!-- <app-login></app-login> -->
+  </ul>
 </nav>
 
 <div class="wrapper">

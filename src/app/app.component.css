@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   position: fixed;
-  width: 100%;
+  width: calc(100% - 2rem);
   top: 0;
   left: 0;
   z-index: 999;
@@ -34,4 +34,12 @@
 
 .wrapper {
   padding-top: 5.875rem;
+}
+
+.flex-end {
+  margin-left: auto;
+}
+
+.greeting {
+  margin-right: 1rem;
 }
