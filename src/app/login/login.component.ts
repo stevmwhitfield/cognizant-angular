@@ -10,11 +10,7 @@ import { Router } from '@angular/router';
     styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
-    constructor(private authService: AuthService, private router: Router) {
-        // this.authService.isAuthenticated$().subscribe((isAuthenticated) => {
-        //     console.log('isAuthenticated', isAuthenticated);
-        // });
-    }
+    constructor(private authService: AuthService, private router: Router) {}
 
     ngOnInit() {
         this.login();

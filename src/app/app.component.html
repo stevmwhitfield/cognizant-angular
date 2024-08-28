@@ -33,9 +33,11 @@
     <li>
       <a class="nav-link" routerLink="/bio">Bio</a>
     </li>
+    @if (this.isAuthenticated) {
     <li>
       <a class="nav-link" routerLink="/create">Create</a>
     </li>
+    }
   </ul>
   <ul class="navbar-nav flex-end">
     @if (!this.isAuthenticated) {

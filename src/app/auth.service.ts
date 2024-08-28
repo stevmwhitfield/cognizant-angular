@@ -13,12 +13,14 @@ export class AuthService {
     }
 
     login() {
-        console.log('AuthService.login');
         this.authResponse.next(true);
     }
 
     logout() {
-        console.log('AuthService.logout');
         this.authResponse.next(false);
+    }
+
+    isLoggedIn(): boolean {
+        return this.authResponse.value;
     }
 }
