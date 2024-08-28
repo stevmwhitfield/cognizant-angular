@@ -11,8 +11,8 @@
   border-radius: 6px;
   font-size: 0.875rem;
   font-weight: 500;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   height: 2.5rem;
   padding: 0.5rem 1rem;
   transition-property: color, background-color, border-color,
@@ -23,11 +23,11 @@
   margin-right: 0.5rem;
 
   &:hover {
-    background-color: hsla(0, 0%, 0%, 0.8);
+    background-color: hsla(0, 0%, 100%, 0.8);
   }
 
   &:disabled {
-    background-color: hsla(0, 0%, 0%, 0.5);
+    background-color: hsla(0, 0%, 100%, 0.5);
     cursor: not-allowed;
   }
 }
